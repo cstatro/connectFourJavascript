@@ -2,12 +2,7 @@ function move(slot){
    let slotPlaced = parseInt(findAndDrop(slot))
     console.log(findRowEnd(slotPlaced))
     checkForWin(slotPlaced)
-    //checks for winning condition
-    // calls next player
 }
-
-
-
 function findAndDrop(slot){
     let searchSlot = parseInt(findColumnEnd(slot))
     while(searchSlot > 0){
@@ -20,13 +15,8 @@ function findAndDrop(slot){
         else{
             searchSlot = searchSlot-7
         }
-    }
-    
-return -1
-    
-    //drops the token
-    //finds the correct slot and sets color
-    // set a variable inside the move function scope to be current slot
+    }   
+    return -1    
 }
 
 function checkForWin(checkedSlot){
@@ -38,6 +28,7 @@ function checkForWin(checkedSlot){
     let vert = buildVerticalArr(columnStart)
     let horiz = tracker.slice(rowStart,rowEnd+1)
     let slantLeft = buildSlantLeft(x)
+    let slantRight = buildSlantRight(x)
     console.log('made it here')
     
     if(checkFour(vert) == true){
@@ -51,14 +42,14 @@ function checkForWin(checkedSlot){
     else if (checkFour(slantLeft) == true){
         alert('slant left victory')
     }
+    else if(checkFour(slantRight)== true){
+        alert('slant right victory')
+    }
+    else{
+        return -1
+    }
     
     
-    
-    // check for in a row in either direction within it's range of 7
-    //check verticle for it's base 7 match up
-    //left to right find difference and check row for matching 4
-    //check diagional lines north west to south east
-    //check NE to SW
 }
 
 function findColumnEnd(slot){
@@ -141,4 +132,15 @@ function rightSlantStart(slot){
         current = current-6
     }
     return current
+}
+function buildSlantRight(slot){
+    let start = rightSlantStart(slot)
+    let current = start
+    let arr = []
+    while (findRowEnd(current) != 42 && findColumnEnd(current) != 36){
+        arr.push(tracker[current])
+        current += 6
+    }
+    arr.push(tracker[current])
+    return arr
 }
