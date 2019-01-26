@@ -37,17 +37,20 @@ function checkForWin(checkedSlot){
     let columnStart = columnEnd-35
     let vert = buildVerticalArr(columnStart)
     let horiz = tracker.slice(rowStart,rowEnd+1)
-    
+    let slantLeft = buildSlantLeft(x)
+    console.log('made it here')
     
     if(checkFour(vert) == true){
         console.log(vert)
-        alert('got em')
+        alert('got em vert')
     }
-    else if (checkFour(horiz)){
+    else if (checkFour(horiz)== true){
         console.log(horiz)
-        alert('got em')
+        alert('got em horiz')
     }
-
+    else if (checkFour(slantLeft) == true){
+        alert('slant left victory')
+    }
     
     
     
@@ -116,10 +119,11 @@ function buildSlantLeft(slot){
     let start = leftSlantStart(slot)
     let current = start
     let arr = []
-    while (findRowEnd(current) != 42 || findColumnEnd(current) != 42){
-        arr.push(current)
+    while (findRowEnd(current) != 42 && findColumnEnd(current) != 42){
+        arr.push(tracker[current])
         current += 8
     }
+    arr.push(tracker[current])
     return arr
 }
 
