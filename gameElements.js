@@ -13,11 +13,7 @@ for(var i = 0; i < entireGrid.length;i++){
         newCircle.id = i+1
         newCircle.taken = false
     entireGrid[i].append(newCircle)
-    //display text for visual aid on debugging
-    let slotNum = document.createElement('p')
-        slotNum.innerHTML = `${i+1}`
-        slotNum.style.margin = 'auto'
-        newCircle.append(slotNum)
+    
 }
 
 // empty array will assist with checking WIN conditions. 1 will signify Red 2 Blue 0 empty

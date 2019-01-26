@@ -32,18 +32,16 @@ function checkForWin(checkedSlot){
     console.log('made it here')
     
     if(checkFour(vert) == true){
-        console.log(vert)
-        alert('got em vert')
+        alert (`${teamColor[0]} wins!`)
     }
     else if (checkFour(horiz)== true){
-        console.log(horiz)
-        alert('got em horiz')
+        alert (`${teamColor[0]} wins!`)
     }
     else if (checkFour(slantLeft) == true){
-        alert('slant left victory')
+        alert (`${teamColor[0]} wins!`)
     }
     else if(checkFour(slantRight)== true){
-        alert('slant right victory')
+        alert (`${teamColor[0]} wins!`)
     }
     else{
         return -1
