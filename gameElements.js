@@ -30,14 +30,29 @@ let allSlots = document.querySelectorAll(".circle")
 // attach even listener to Circles
 
 
-//function attachAll(){
-for (var i = 0; i < allSlots.length;i++){
-    let target = allSlots[i]
 
-    target.addEventListener('mouseup',function(){
-        let clickSrc = parseInt(target.id)
-        move(clickSrc)
-    })
+attachAll()
 
+function attachAll(){
+    for (var i = 0; i < allSlots.length;i++){
+        let target = allSlots[i]
+        target.addEventListener('mouseup', droptoken)
     }
-//}
+}
+    
+function droptoken(target){
+    removeAll()
+    let clickSrc = parseInt(this.id)
+    move(clickSrc)
+}    
+
+function removeAll (){
+    for (var i = 0; i < allSlots.length;i++){
+        let target = allSlots[i]
+        target.removeEventListener('mouseup', droptoken)
+    }
+}
+    
+    
+
+    

@@ -2,6 +2,7 @@ function move(slot){
    let slotPlaced = parseInt(findAndDrop(slot))
     console.log(findRowEnd(slotPlaced))
     checkForWin(slotPlaced)
+    
 }
 function findAndDrop(slot){
     let searchSlot = parseInt(findColumnEnd(slot))
@@ -44,7 +45,7 @@ function checkForWin(checkedSlot){
         alert (`${teamColor[0]} wins!`)
     }
     else{
-        return -1
+        return attachAll()
     }
     
     
@@ -142,3 +143,6 @@ function buildSlantRight(slot){
     arr.push(tracker[current])
     return arr
 }
+
+
+
