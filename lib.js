@@ -1,9 +1,15 @@
+
+
+
 function move(slot){
-   let slotPlaced = parseInt(findAndDrop(slot))
-    console.log(findRowEnd(slotPlaced))
-    checkForWin(slotPlaced)
+   
+    let slotPlaced = parseInt(findAndDrop(slot))
+    
+     return checkForWin(slotPlaced)
     
 }
+
+
 function findAndDrop(slot){
     let searchSlot = parseInt(findColumnEnd(slot))
     while(searchSlot > 0){
@@ -17,7 +23,7 @@ function findAndDrop(slot){
             searchSlot = searchSlot-7
         }
     }   
-    return -1    
+    return null
 }
 
 function checkForWin(checkedSlot){
@@ -30,19 +36,19 @@ function checkForWin(checkedSlot){
     let horiz = tracker.slice(rowStart,rowEnd+1)
     let slantLeft = buildSlantLeft(x)
     let slantRight = buildSlantRight(x)
-    console.log('made it here')
+    
     
     if(checkFour(vert) == true){
-        alert (`${teamColor[0]} wins!`)
+        alert (`WINNER!`)
     }
     else if (checkFour(horiz)== true){
-        alert (`${teamColor[0]} wins!`)
+        alert (`WINNER!`)
     }
     else if (checkFour(slantLeft) == true){
-        alert (`${teamColor[0]} wins!`)
+        alert (`WINNER!`)
     }
     else if(checkFour(slantRight)== true){
-        alert (`${teamColor[0]} wins!`)
+        alert (`WINNER!`)
     }
     else{
         return attachAll()
